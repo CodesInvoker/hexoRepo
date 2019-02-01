@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="project model 说明 API 说明 1. 添加项目 2. 修改项目(已停用) 3. 删除项目 4. 根据项目id获取项目列表 5. 获取当前用户Project列表 6. 获取团队的项目列表 7. 获取项目插件列表 8. 修改项目插件 9. 获取插件配置 10. 更新插件配置 11. 添加项目时导入模板接口 12. 复制项目 13. 星标项目 14. 取消星标项目 15. 获取当前用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/01/24/project/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="project model 说明 API 说明 1. 添加项目 2. 修改项目(已停用) 3. 删除项目 4. 根据项目id获取项目列表 5. 获取当前用户Project列表 6. 获取团队的项目列表 7. 获取项目插件列表 8. 修改项目插件 9. 获取插件配置 10. 更新插件配置 11. 添加项目时导入模板接口 12. 复制项目 13. 星标项目 14. 取消星标项目 15. 获取当前用">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-24T12:11:51.946Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="project model 说明 API 说明 1. 添加项目 2. 修改项目(已停用) 3. 删除项目 4. 根据项目id获取项目列表 5. 获取当前用户Project列表 6. 获取团队的项目列表 7. 获取项目插件列表 8. 修改项目插件 9. 获取插件配置 10. 更新插件配置 11. 添加项目时导入模板接口 12. 复制项目 13. 星标项目 14. 取消星标项目 15. 获取当前用">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-project" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/24/project/" class="article-date">
+  <time datetime="2019-01-24T12:11:51.946Z" itemprop="datePublished">2019-01-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- TOC depthFrom:1 depthTo:3 -->
+<ul>
+<li><a href="#project-model-说明">project model 说明</a></li>
+<li><a href="#api-说明">API 说明</a><ul>
+<li><a href="#1-添加项目">1. 添加项目</a></li>
+<li><a href="#2-修改项目已停用">2. 修改项目(已停用)</a></li>
+<li><a href="#3-删除项目">3. 删除项目</a></li>
+<li><a href="#4-根据项目id获取项目列表">4. 根据项目id获取项目列表</a></li>
+<li><a href="#5-获取当前用户project列表">5. 获取当前用户Project列表</a></li>
+<li><a href="#6-获取团队的项目列表">6. 获取团队的项目列表</a></li>
+<li><a href="#7-获取项目插件列表">7. 获取项目插件列表</a></li>
+<li><a href="#8-修改项目插件">8. 修改项目插件</a></li>
+<li><a href="#9-获取插件配置">9. 获取插件配置</a></li>
+<li><a href="#10-更新插件配置">10. 更新插件配置</a></li>
+<li><a href="#11-添加项目时导入模板接口">11. 添加项目时导入模板接口</a></li>
+<li><a href="#12-复制项目">12. 复制项目</a></li>
+<li><a href="#13-星标项目">13. 星标项目</a></li>
+<li><a href="#14-取消星标项目">14. 取消星标项目</a></li>
+<li><a href="#15-获取当前用户最近浏览project列表">15. 获取当前用户最近浏览Project列表</a></li>
+<li><a href="#16-获取项目卡片里显示的报表数据">16. 获取项目卡片里显示的报表数据</a></li>
+<li><a href="#16-标记浏览项目接口">16. 标记浏览项目接口</a></li>
+<li><a href="#17-获取项目下的-迭代负责人-权限列表">17. 获取项目下的 “迭代负责人” 权限列表</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h2 id="project-model-说明"><a href="#project-model-说明" class="headerlink" title="project model 说明"></a>project model 说明</h2><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>值类型</th>
+<th>取值范围</th>
+<th>取值例子</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td>string</td>
+<td>len=16</td>
+<td></td>
+<td>由创建者uuid+随机8位字符组成</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>len&lt;=128</td>
+<td></td>
+<td>项目名称</td>
+</tr>
+<tr>
+<td>assign</td>
+<td>string</td>
+<td>len=8</td>
+<td></td>
+<td>项目负责人</td>
+</tr>
+<tr>
+<td>status_uuid</td>
+<td>string</td>
+<td>len=8</td>
+<td></td>
+<td>项目状态uuid</td>
+</tr>
+<tr>
+<td>status_category</td>
+<td>string</td>
+<td></td>
+<td></td>
+<td>项目状态分类</td>
+</tr>
+<tr>
+<td>is_pin</td>
+<td>bool</td>
+<td></td>
+<td></td>
+<td>是否置顶</td>
+</tr>
+<tr>
+<td>status</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>项目状态，1：正常；2：删除 (兼容移动端，目前接口只返回status=1的数据)</td>
+</tr>
+<tr>
+<td>is_open_email_notify</td>
+<td>bool</td>
+<td></td>
+<td></td>
+<td>是否开通邮件通知</td>
+</tr>
+<tr>
+<td>announcement</td>
+<td>string</td>
+<td>len&lt;=512</td>
+<td></td>
+<td>项目公告</td>
+</tr>
+<tr>
+<td>deadline</td>
+<td>int64</td>
+<td></td>
+<td></td>
+<td>截止时间，与1970的秒差</td>
+</tr>
+<tr>
+<td>task_update_time</td>
+<td>int64</td>
+<td></td>
+<td></td>
+<td>项目下任务更新时间(单位秒)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="API-说明"><a href="#API-说明" class="headerlink" title="API 说明"></a>API 说明</h2><h3 id="1-添加项目"><a href="#1-添加项目" class="headerlink" title="1. 添加项目"></a>1. 添加项目</h3><h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4><p><del><a href="https://api.ones.ai/v1/team/:teamUUID/projects/batch_add" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/projects/batch_add</a></del></p>
+<h4 id="HTTP-Method"><a href="#HTTP-Method" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>POST</p>
+<h4 id="调用权限"><a href="#调用权限" class="headerlink" title="调用权限"></a>调用权限</h4><p>administer_do</p>
+<h4 id="传值方式"><a href="#传值方式" class="headerlink" title="传值方式"></a>传值方式</h4><p>JSON</p>
+<h4 id="参数列表"><a href="#参数列表" class="headerlink" title="参数列表"></a>参数列表</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>值类型</th>
+<th>是否可以空</th>
+<th>取值范围</th>
+<th>取值例子</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>projects</td>
+<td>array</td>
+<td>否</td>
+<td></td>
+<td></td>
+<td>批量添加项目数组</td>
+</tr>
+<tr>
+<td>&emsp;uuid</td>
+<td>string</td>
+<td>否</td>
+<td>len=16</td>
+<td></td>
+<td>由创建者uuid+随机8位字符组成</td>
+</tr>
+<tr>
+<td>&emsp;name</td>
+<td>string</td>
+<td>否</td>
+<td>len&lt;=128</td>
+<td></td>
+<td>项目名称</td>
+</tr>
+<tr>
+<td>&emsp;announcement</td>
+<td>string</td>
+<td>是</td>
+<td>len&lt;=512</td>
+<td></td>
+<td>项目公告</td>
+</tr>
+<tr>
+<td>&emsp;deadline</td>
+<td>int64</td>
+<td>是</td>
+<td></td>
+<td></td>
+<td>截止时间，与1970的秒差</td>
+</tr>
+</tbody>
+</table>
+<h4 id="项目成员域类型"><a href="#项目成员域类型" class="headerlink" title="项目成员域类型"></a>项目成员域类型</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">type</th>
+<th style="text-align:left">值类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">single_user</td>
+<td style="text-align:left">用户</td>
+</tr>
+<tr>
+<td style="text-align:left">group</td>
+<td style="text-align:left">用户组</td>
+</tr>
+<tr>
+<td style="text-align:left">department</td>
+<td style="text-align:left">部门</td>
+</tr>
+<tr>
+<td style="text-align:left">everyone</td>
+<td style="text-align:left">团队内所有用户</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回JSON"><a href="#返回JSON" class="headerlink" title="返回JSON"></a>返回JSON</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>值类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>projects</td>
+<td>array</td>
+<td>添加成功project,见上方model说明</td>
+</tr>
+<tr>
+<td>bad_projects</td>
+<td>array</td>
+<td>添加失败的project</td>
+</tr>
+<tr>
+<td>&emsp;uuid</td>
+<td>string</td>
+<td>添加失败的project的id</td>
+</tr>
+<tr>
+<td>&emsp;code</td>
+<td>int</td>
+<td>添加失败错误码</td>
+</tr>
+<tr>
+<td>&emsp;desc</td>
+<td>string</td>
+<td>添加失败提示</td>
+</tr>
+<tr>
+<td>server_udpate_stamp</td>
+<td>int64</td>
+<td></td>
+<td></td>
+<td>更新时间戳</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回的HTTP-status-code"><a href="#返回的HTTP-status-code" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">操作成功</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">接口错误</td>
+</tr>
+<tr>
+<td style="text-align:left">801</td>
+<td style="text-align:left">参数无效</td>
+</tr>
+<tr>
+<td style="text-align:left">832</td>
+<td style="text-align:left">超出数量限制</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-修改项目-已停用"><a href="#2-修改项目-已停用" class="headerlink" title="2. 修改项目(已停用)"></a>2. 修改项目(已停用)</h3><h4 id="URL-1"><a href="#URL-1" class="headerlink" title="URL"></a>URL</h4><p><del><a href="https://api.ones.ai/v1/team/:teamUUID/projects/update" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/projects/update</a></del></p>
+<h4 id="HTTP-Method-1"><a href="#HTTP-Method-1" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>POST</p>
+<h4 id="返回JSON-1"><a href="#返回JSON-1" class="headerlink" title="返回JSON"></a>返回JSON</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  &quot;code&quot;: 410,</span><br><span class="line">  &quot;errcode&quot;: &quot;gone.This requested is no longer available at the server&quot;,</span><br><span class="line">  &quot;reason&quot;: &quot;This requested is no longer available at the server&quot;,</span><br><span class="line">  &quot;type&quot;: &quot;gone&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-删除项目"><a href="#3-删除项目" class="headerlink" title="3. 删除项目"></a>3. 删除项目</h3><h4 id="URL-2"><a href="#URL-2" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/project/delete" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/project/delete</a></p>
+<h4 id="HTTP-Method-2"><a href="#HTTP-Method-2" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>POST</p>
+<h4 id="调用权限-1"><a href="#调用权限-1" class="headerlink" title="调用权限"></a>调用权限</h4><p>administer_do</p>
+<h4 id="传值方式-1"><a href="#传值方式-1" class="headerlink" title="传值方式"></a>传值方式</h4><p>JSON</p>
+<h4 id="参数列表-1"><a href="#参数列表-1" class="headerlink" title="参数列表"></a>参数列表</h4><p>无</p>
+<h4 id="返回JSON-2"><a href="#返回JSON-2" class="headerlink" title="返回JSON"></a>返回JSON</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>值类型</th>
+<th>取值范围</th>
+<th>取值例子</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server_udpate_stamp</td>
+<td>int64</td>
+<td></td>
+<td></td>
+<td>更新时间戳</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回的HTTP-status-code-1"><a href="#返回的HTTP-status-code-1" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">操作成功</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">接口错误</td>
+</tr>
+<tr>
+<td style="text-align:left">630</td>
+<td style="text-align:left">找不到需要删除的项目</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-根据项目id获取项目列表"><a href="#4-根据项目id获取项目列表" class="headerlink" title="4. 根据项目id获取项目列表"></a>4. 根据项目id获取项目列表</h3><h4 id="URL-3"><a href="#URL-3" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/projects/info" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/projects/info</a></p>
+<h4 id="HTTP-Method-3"><a href="#HTTP-Method-3" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>GET</p>
+<h4 id="调用权限-2"><a href="#调用权限-2" class="headerlink" title="调用权限"></a>调用权限</h4><p>需要 <code>查看团队项目列表</code> 权限</p>
+<h4 id="参数列表-2"><a href="#参数列表-2" class="headerlink" title="参数列表"></a>参数列表</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:left">是否必须</th>
+<th style="text-align:left">值类型</th>
+<th style="text-align:left">取值范围</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">取值例子</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ids</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ojytvgw3876gdkut,juyg5oi87tgdwet6</td>
+<td style="text-align:left">多个使用逗号隔开,单个uuid长度为16，并且不能重复</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回的HTTP-status-code-2"><a href="#返回的HTTP-status-code-2" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">成功</td>
+</tr>
+<tr>
+<td style="text-align:left">400</td>
+<td style="text-align:left">请求参数无效</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">服务器错误</td>
+</tr>
+<tr>
+<td style="text-align:left">808</td>
+<td style="text-align:left">不是团队管理员</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回JSON-3"><a href="#返回JSON-3" class="headerlink" title="返回JSON"></a>返回JSON</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>值类型</th>
+<th>取值范围</th>
+<th>取值例子</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>projects</td>
+<td>array</td>
+<td></td>
+<td></td>
+<td>项目数组,参考上面project model</td>
+</tr>
+<tr>
+<td>errors</td>
+<td>array</td>
+<td></td>
+<td></td>
+<td>获取失败的项目列表</td>
+</tr>
+<tr>
+<td>&emsp;&emsp;uuid</td>
+<td>string</td>
+<td></td>
+<td></td>
+<td>项目uuid</td>
+</tr>
+<tr>
+<td>&emsp;&emsp;code</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>错误码</td>
+</tr>
+<tr>
+<td>&emsp;&emsp;desc</td>
+<td>string</td>
+<td></td>
+<td></td>
+<td>错误描述</td>
+</tr>
+</tbody>
+</table>
+<h4 id="code-可能取值"><a href="#code-可能取值" class="headerlink" title="code 可能取值"></a>code 可能取值</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">code</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">403</td>
+<td style="text-align:left">无访问权限</td>
+</tr>
+<tr>
+<td style="text-align:left">609</td>
+<td style="text-align:left">项目uuid不存在</td>
+</tr>
+<tr>
+<td style="text-align:left">819</td>
+<td style="text-align:left">没有操作权限</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-获取当前用户Project列表"><a href="#5-获取当前用户Project列表" class="headerlink" title="5. 获取当前用户Project列表"></a>5. 获取当前用户Project列表</h3><h4 id="URL-4"><a href="#URL-4" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/projects/my_project" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/projects/my_project</a></p>
+<h4 id="HTTP-Method-4"><a href="#HTTP-Method-4" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>GET</p>
+<h4 id="参数列表-3"><a href="#参数列表-3" class="headerlink" title="参数列表"></a>参数列表</h4><h4 id="返回JSON-4"><a href="#返回JSON-4" class="headerlink" title="返回JSON"></a>返回JSON</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">JSON键名</th>
+<th style="text-align:left">值类型</th>
+<th style="text-align:left">取值范围</th>
+<th style="text-align:left">取值例子</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">projects</td>
+<td style="text-align:left">Array</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">[]</td>
+<td style="text-align:left">项目数组,参考上面project model</td>
+</tr>
+<tr>
+<td style="text-align:left">archive_projects</td>
+<td style="text-align:left">Array</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">[]</td>
+<td style="text-align:left">归档Project数组,参考上面project model</td>
+</tr>
+<tr>
+<td style="text-align:left">server_update_stamp</td>
+<td style="text-align:left">int64</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">项目数据的更新时间</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回的HTTP-status-code-3"><a href="#返回的HTTP-status-code-3" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">成功</td>
+</tr>
+<tr>
+<td style="text-align:left">403</td>
+<td style="text-align:left">没有权限</td>
+</tr>
+<tr>
+<td style="text-align:left">801</td>
+<td style="text-align:left">参数错误</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">服务端异常</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-获取团队的项目列表"><a href="#6-获取团队的项目列表" class="headerlink" title="6. 获取团队的项目列表"></a>6. 获取团队的项目列表</h3><h4 id="URL-5"><a href="#URL-5" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/projects/all" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/projects/all</a></p>
+<h4 id="HTTP-Method-5"><a href="#HTTP-Method-5" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>Get</p>
+<h4 id="传值方式-2"><a href="#传值方式-2" class="headerlink" title="传值方式"></a>传值方式</h4><p>JSON</p>
+<h4 id="需要权限"><a href="#需要权限" class="headerlink" title="需要权限"></a>需要权限</h4><p>查看团队项目权限</p>
+<h4 id="参数列表-4"><a href="#参数列表-4" class="headerlink" title="参数列表"></a>参数列表</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:left">是否必须</th>
+<th style="text-align:left">值类型</th>
+<th style="text-align:left">取值范围</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">取值例子</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">F</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">all/general/archive</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">返回进行中和归档项目(默认)/返回进行中/归档项目类型</td>
+</tr>
+<tr>
+<td style="text-align:left">limit</td>
+<td style="text-align:left">F</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">(0,)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">返回项目数</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回的HTTP-status-code-4"><a href="#返回的HTTP-status-code-4" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">成功</td>
+</tr>
+<tr>
+<td style="text-align:left">403</td>
+<td style="text-align:left">没有权限</td>
+</tr>
+<tr>
+<td style="text-align:left">801</td>
+<td style="text-align:left">参数错误</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">服务端异常</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回JSON-5"><a href="#返回JSON-5" class="headerlink" title="返回JSON"></a>返回JSON</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">JSON键名</th>
+<th style="text-align:left">值类型</th>
+<th style="text-align:left">取值范围</th>
+<th style="text-align:left">取值例子</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">projects</td>
+<td style="text-align:left">array</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">项目数组,参考上面project model</td>
+</tr>
+<tr>
+<td style="text-align:left">server_update_stamp</td>
+<td style="text-align:left">int64</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">项目数据的更新时间</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-获取项目插件列表"><a href="#7-获取项目插件列表" class="headerlink" title="7. 获取项目插件列表"></a>7. 获取项目插件列表</h3><h4 id="URL-6"><a href="#URL-6" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/plugins" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/plugins</a></p>
+<h4 id="HTTP-Method-6"><a href="#HTTP-Method-6" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>GET</p>
+<h4 id="调用权限-3"><a href="#调用权限-3" class="headerlink" title="调用权限"></a>调用权限</h4><p>项目成员</p>
+<h4 id="返回JSON-6"><a href="#返回JSON-6" class="headerlink" title="返回JSON"></a>返回JSON</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">JSON键名</th>
+<th style="text-align:left">值类型</th>
+<th style="text-align:left">取值范围</th>
+<th style="text-align:left">取值例子</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">plugins</td>
+<td style="text-align:left">object</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">用户登录信息</td>
+</tr>
+<tr>
+<td style="text-align:left">&emsp;uuid</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">len=8</td>
+<td style="text-align:left">136mQpBg</td>
+<td style="text-align:left">插件uuid</td>
+</tr>
+<tr>
+<td style="text-align:left">&emsp;name</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">len&lt;=64</td>
+<td style="text-align:left">工时</td>
+<td style="text-align:left">插件名</td>
+</tr>
+<tr>
+<td style="text-align:left">&emsp;avatar_url</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">len&lt;=128</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">插件图标</td>
+</tr>
+<tr>
+<td style="text-align:left">&emsp;status</td>
+<td style="text-align:left">int</td>
+<td style="text-align:left">1:开启;2:关闭;3:不可用(团队插件没开启)</td>
+</tr>
+<tr>
+<td style="text-align:left">&emsp;summary</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">len&lt;=256</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">描述</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回的HTTP-status-code-5"><a href="#返回的HTTP-status-code-5" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">操作成功</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">接口错误</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-修改项目插件"><a href="#8-修改项目插件" class="headerlink" title="8. 修改项目插件"></a>8. 修改项目插件</h3><h4 id="URL-7"><a href="#URL-7" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/plugins/update" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/plugins/update</a></p>
+<h4 id="HTTP-Method-7"><a href="#HTTP-Method-7" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>POST</p>
+<h4 id="调用权限-4"><a href="#调用权限-4" class="headerlink" title="调用权限"></a>调用权限</h4><p>manage_project</p>
+<h4 id="传值方式-3"><a href="#传值方式-3" class="headerlink" title="传值方式"></a>传值方式</h4><p>JSON</p>
+<h4 id="参数列表-5"><a href="#参数列表-5" class="headerlink" title="参数列表"></a>参数列表</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>值类型</th>
+<th>是否可以空</th>
+<th>取值范围</th>
+<th>取值例子</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plugins</td>
+<td>array</td>
+<td>否</td>
+<td></td>
+<td></td>
+<td>修改插件值的集合</td>
+</tr>
+<tr>
+<td>&emsp;plugin_uuid</td>
+<td>string</td>
+<td>否</td>
+<td></td>
+<td>修改插件的值</td>
+</tr>
+<tr>
+<td>&emsp;status</td>
+<td>int</td>
+<td>否</td>
+<td></td>
+<td>1:开启;2:关闭</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回JSON-7"><a href="#返回JSON-7" class="headerlink" title="返回JSON"></a>返回JSON</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>值类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>errors</td>
+<td>array</td>
+<td>返回错误信息</td>
+</tr>
+<tr>
+<td>&emsp;uuid</td>
+<td>string</td>
+<td>修改插件的id</td>
+</tr>
+<tr>
+<td>&emsp;code</td>
+<td>int</td>
+<td>错误码</td>
+</tr>
+<tr>
+<td>&emsp;desc</td>
+<td>string</td>
+<td>错误描述</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回的HTTP-status-code-6"><a href="#返回的HTTP-status-code-6" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">操作成功/部分操作失败</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">接口错误</td>
+</tr>
+<tr>
+<td style="text-align:left">818</td>
+<td style="text-align:left">issuetype 重复</td>
+</tr>
+<tr>
+<td style="text-align:left">825</td>
+<td style="text-align:left">团队插件没有打开</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-获取插件配置"><a href="#9-获取插件配置" class="headerlink" title="9. 获取插件配置"></a>9. 获取插件配置</h3><h4 id="URL-8"><a href="#URL-8" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/plugin/config" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/plugin/config</a></p>
+<h4 id="HTTP-Method-8"><a href="#HTTP-Method-8" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>GET</p>
+<h4 id="调用权限-5"><a href="#调用权限-5" class="headerlink" title="调用权限"></a>调用权限</h4><p>项目成员</p>
+<h4 id="参数列表-6"><a href="#参数列表-6" class="headerlink" title="参数列表"></a>参数列表</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:left">是否必须</th>
+<th style="text-align:left">值类型</th>
+<th style="text-align:left">取值范围</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">取值例子</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">plugin_uuid</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ojytvg</td>
+<td style="text-align:left">插件 uuid</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回的HTTP-status-code-7"><a href="#返回的HTTP-status-code-7" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">操作成功</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">接口错误</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回JSON-8"><a href="#返回JSON-8" class="headerlink" title="返回JSON"></a>返回JSON</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// 不同插件, 数据格式不同</span><br><span class="line"></span><br><span class="line">// example 应用评论插件</span><br><span class="line">&#123;</span><br><span class="line">	&quot;plugin_uuid&quot;: &quot;ER5ER8Ex&quot;,</span><br><span class="line">	&quot;config&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;app_id&quot;: &quot;444934666&quot;,</span><br><span class="line">            &quot;app_name&quot;: &quot;QQ&quot;,</span><br><span class="line">            &quot;assign&quot;: &quot;ijnbhuyg&quot;,</span><br><span class="line">            &quot;is_begin_from&quot;: false</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;app_id&quot;: &quot;874881574&quot;,</span><br><span class="line">            &quot;app_name&quot;: &quot;&quot;,</span><br><span class="line">            &quot;assign&quot;: &quot;ijnbhuyg&quot;,</span><br><span class="line">            &quot;is_begin_from&quot;: false</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line">// example 代码关联插件</span><br><span class="line">&#123;</span><br><span class="line">	&quot;plugin_uuid&quot;: &quot;QEfqHHfN&quot;,</span><br><span class="line">    &quot;config&quot;: &#123;</span><br><span class="line">            &quot;webhook_url&quot;: &quot;https://ones.ai/project/v1/webhook/reindex/install?team_uuid=?&amp;project_uuid=2DnvazPC2lXFFpRU&quot;,</span><br><span class="line">            &quot;secret_key&quot;: &quot;2703186834525904822c1504e651eaac&quot;,</span><br><span class="line">            &quot;last_success_time&quot;: 1438723019 // 如果一次都没成功那么值为0</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">// example ci 插件</span><br><span class="line">&#123;</span><br><span class="line">	&quot;plugin_uuid&quot;: &quot;G4vsJrXz&quot;,</span><br><span class="line">	&quot;config&quot;: &#123;</span><br><span class="line">		&quot;last_success_time&quot;: 1438723019,</span><br><span class="line">		&quot;script&quot;: &quot;&quot;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="10-更新插件配置"><a href="#10-更新插件配置" class="headerlink" title="10. 更新插件配置"></a>10. 更新插件配置</h3><h4 id="URL-9"><a href="#URL-9" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/plugin/config/update" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/plugin/config/update</a></p>
+<h4 id="HTTP-Method-9"><a href="#HTTP-Method-9" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>POST</p>
+<h4 id="调用权限-6"><a href="#调用权限-6" class="headerlink" title="调用权限"></a>调用权限</h4><p>项目成员</p>
+<h4 id="参数列表-7"><a href="#参数列表-7" class="headerlink" title="参数列表"></a>参数列表</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:left">是否必须</th>
+<th style="text-align:left">值类型</th>
+<th style="text-align:left">取值范围</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">取值例子</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">plugin_uuid</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ojytvg</td>
+<td style="text-align:left">插件 uuid</td>
+</tr>
+<tr>
+<td style="text-align:left">action</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">“add” “update”, “delete”</td>
+<td style="text-align:left">操作动作</td>
+</tr>
+<tr>
+<td style="text-align:left">config</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">object</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">更新数据, 根据action, 决定结构</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// example 应用评论插件</span><br><span class="line">// add</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"plugin_uuid"</span>: <span class="string">"12345678"</span>,</span><br><span class="line">    <span class="attr">"action"</span>: <span class="string">"add"</span>,</span><br><span class="line">    <span class="attr">"config"</span>: &#123;</span><br><span class="line">        <span class="attr">"app_id"</span>: <span class="string">"874881574"</span>,</span><br><span class="line">        <span class="attr">"app_name"</span>: <span class="string">"QQ"</span>,</span><br><span class="line">        <span class="attr">"assign"</span>: <span class="string">"ijnbhuyg"</span>,</span><br><span class="line">        <span class="attr">"is_begin_from"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// update</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"plugin_uuid"</span>: <span class="string">"12345678"</span>,</span><br><span class="line">    <span class="attr">"action"</span>: <span class="string">"update"</span>,</span><br><span class="line">    <span class="attr">"config"</span>: &#123;</span><br><span class="line">        <span class="attr">"app_id"</span>: <span class="string">"874881574"</span>,</span><br><span class="line">        <span class="attr">"assign"</span>: <span class="string">"ijnbhuyg"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// delete</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"plugin_uuid"</span>: <span class="string">"12345678"</span>,</span><br><span class="line">    <span class="attr">"action"</span>: <span class="string">"delete"</span>,</span><br><span class="line">    <span class="attr">"config"</span>: &#123;</span><br><span class="line">        <span class="attr">"app_id"</span>: <span class="string">"874881574"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// example 代码关联插件</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"plugin_uuid"</span>: <span class="string">"QEfqHHfN"</span></span><br><span class="line">&#125;</span><br><span class="line">// example ci 插件</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"plugin_uuid"</span>: <span class="string">"G4vsJrXz"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="返回的HTTP-status-code-8"><a href="#返回的HTTP-status-code-8" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">操作成功</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">接口错误</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回JSON-9"><a href="#返回JSON-9" class="headerlink" title="返回JSON"></a>返回JSON</h4><p>无</p>
+<h3 id="11-添加项目时导入模板接口"><a href="#11-添加项目时导入模板接口" class="headerlink" title="11. 添加项目时导入模板接口"></a>11. 添加项目时导入模板接口</h3><h4 id="URL-10"><a href="#URL-10" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/projects/add" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/projects/add</a></p>
+<h4 id="HTTP-Method-10"><a href="#HTTP-Method-10" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>POST</p>
+<h4 id="调用权限-7"><a href="#调用权限-7" class="headerlink" title="调用权限"></a>调用权限</h4><p>manage_project</p>
+<h4 id="传值方式-4"><a href="#传值方式-4" class="headerlink" title="传值方式"></a>传值方式</h4><p>JSON</p>
+<h4 id="参数列表-8"><a href="#参数列表-8" class="headerlink" title="参数列表"></a>参数列表</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>值类型</th>
+<th>是否可以空</th>
+<th>取值范围</th>
+<th>取值例子</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>project</td>
+<td>object</td>
+<td>否</td>
+<td></td>
+<td></td>
+<td>添加项目</td>
+</tr>
+<tr>
+<td>&emsp;uuid</td>
+<td>string</td>
+<td>否</td>
+<td>len=16</td>
+<td></td>
+<td>由创建者uuid+随机8位字符组成</td>
+</tr>
+<tr>
+<td>&emsp;name</td>
+<td>string</td>
+<td>否</td>
+<td>len&lt;=128</td>
+<td></td>
+<td>项目名称</td>
+</tr>
+<tr>
+<td>&emsp;announcement</td>
+<td>string</td>
+<td>是</td>
+<td>len&lt;=512</td>
+<td></td>
+<td>项目公告</td>
+</tr>
+<tr>
+<td>&emsp;deadline</td>
+<td>int64</td>
+<td>是</td>
+<td></td>
+<td></td>
+<td>截止时间，与1970的秒差</td>
+</tr>
+<tr>
+<td>issue_types</td>
+<td>array</td>
+<td>是</td>
+<td></td>
+<td></td>
+<td>任务类型的UUID数组</td>
+</tr>
+<tr>
+<td>copy_from</td>
+<td>map</td>
+<td>是</td>
+<td></td>
+<td></td>
+<td>key:project_uuid, value:issue_type_uuid数组</td>
+</tr>
+<tr>
+<td>members</td>
+<td>array</td>
+<td>是</td>
+<td></td>
+<td></td>
+<td>“项目成员”角色里的成员</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回JSON-10"><a href="#返回JSON-10" class="headerlink" title="返回JSON"></a>返回JSON</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>值类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>project</td>
+<td>object</td>
+<td>更新成功project,见上方model说明</td>
+</tr>
+<tr>
+<td>server_update_stamp</td>
+<td>int64</td>
+<td>issue_type类型的数据的更新时间</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回的HTTP-status-code-9"><a href="#返回的HTTP-status-code-9" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">操作成功</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">接口错误</td>
+</tr>
+<tr>
+<td style="text-align:left">801</td>
+<td style="text-align:left">参数无效</td>
+</tr>
+<tr>
+<td style="text-align:left">832</td>
+<td style="text-align:left">超出数量限制</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-复制项目"><a href="#12-复制项目" class="headerlink" title="12. 复制项目"></a>12. 复制项目</h3><h4 id="URL-11"><a href="#URL-11" class="headerlink" title="URL"></a>URL</h4><p><del><a href="https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/copy" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/copy</a></del></p>
+<h4 id="HTTP-Method-11"><a href="#HTTP-Method-11" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>POST</p>
+<h4 id="调用权限-8"><a href="#调用权限-8" class="headerlink" title="调用权限"></a>调用权限</h4><p>manage_project</p>
+<h4 id="传值方式-5"><a href="#传值方式-5" class="headerlink" title="传值方式"></a>传值方式</h4><p>JSON</p>
+<h4 id="参数列表-9"><a href="#参数列表-9" class="headerlink" title="参数列表"></a>参数列表</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>值类型</th>
+<th>是否可以空</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td>string</td>
+<td>否</td>
+<td>新项目 uuid</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>否</td>
+<td>新项目名</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回JSON-11"><a href="#返回JSON-11" class="headerlink" title="返回JSON"></a>返回JSON</h4><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>值类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>project</td>
+<td>object</td>
+<td>复制成功project,见上方model说明</td>
+</tr>
+<tr>
+<td>server_update_stamp</td>
+<td>int64</td>
+<td>更新时间</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回的HTTP-status-code-10"><a href="#返回的HTTP-status-code-10" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">操作成功</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">接口错误</td>
+</tr>
+<tr>
+<td style="text-align:left">801</td>
+<td style="text-align:left">参数无效</td>
+</tr>
+<tr>
+<td style="text-align:left">832</td>
+<td style="text-align:left">超出数量限制</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">接口错误</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-星标项目"><a href="#13-星标项目" class="headerlink" title="13. 星标项目"></a>13. 星标项目</h3><h4 id="URL-12"><a href="#URL-12" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/pin" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/pin</a></p>
+<h4 id="HTTP-Method-12"><a href="#HTTP-Method-12" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>POST</p>
+<h4 id="是否需要登录"><a href="#是否需要登录" class="headerlink" title="是否需要登录"></a>是否需要登录</h4><p>是</p>
+<h4 id="传值方式-6"><a href="#传值方式-6" class="headerlink" title="传值方式"></a>传值方式</h4><p>URL</p>
+<h4 id="参数列表-10"><a href="#参数列表-10" class="headerlink" title="参数列表"></a>参数列表</h4><p>无</p>
+<h4 id="返回的HTTP-status-code-11"><a href="#返回的HTTP-status-code-11" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">成功</td>
+</tr>
+<tr>
+<td style="text-align:left">400</td>
+<td style="text-align:left">请求参数无效</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">服务器错误</td>
+</tr>
+<tr>
+<td style="text-align:left">609</td>
+<td style="text-align:left">项目uuid不存在</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-取消星标项目"><a href="#14-取消星标项目" class="headerlink" title="14. 取消星标项目"></a>14. 取消星标项目</h3><h4 id="URL-13"><a href="#URL-13" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/unpin" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/unpin</a></p>
+<h4 id="HTTP-Method-13"><a href="#HTTP-Method-13" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>POST</p>
+<h4 id="是否需要登录-1"><a href="#是否需要登录-1" class="headerlink" title="是否需要登录"></a>是否需要登录</h4><p>是</p>
+<h4 id="传值方式-7"><a href="#传值方式-7" class="headerlink" title="传值方式"></a>传值方式</h4><p>URL</p>
+<h4 id="参数列表-11"><a href="#参数列表-11" class="headerlink" title="参数列表"></a>参数列表</h4><p>无</p>
+<h4 id="返回的HTTP-status-code-12"><a href="#返回的HTTP-status-code-12" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">成功</td>
+</tr>
+<tr>
+<td style="text-align:left">400</td>
+<td style="text-align:left">请求参数无效</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">服务器错误</td>
+</tr>
+<tr>
+<td style="text-align:left">609</td>
+<td style="text-align:left">项目uuid不存在</td>
+</tr>
+</tbody>
+</table>
+<h3 id="15-获取当前用户最近浏览Project列表"><a href="#15-获取当前用户最近浏览Project列表" class="headerlink" title="15. 获取当前用户最近浏览Project列表"></a>15. 获取当前用户最近浏览Project列表</h3><h4 id="URL-14"><a href="#URL-14" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/projects/recent_projects" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/projects/recent_projects</a></p>
+<h4 id="HTTP-Method-14"><a href="#HTTP-Method-14" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>GET</p>
+<h4 id="参数列表-12"><a href="#参数列表-12" class="headerlink" title="参数列表"></a>参数列表</h4><p>无</p>
+<h4 id="返回JSON-12"><a href="#返回JSON-12" class="headerlink" title="返回JSON"></a>返回JSON</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">JSON键名</th>
+<th style="text-align:left">值类型</th>
+<th style="text-align:left">取值范围</th>
+<th style="text-align:left">取值例子</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">projects</td>
+<td style="text-align:left">Array</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">长度&lt;=4</td>
+<td style="text-align:left">最近浏览项目,参考上面project model</td>
+</tr>
+</tbody>
+</table>
+<h3 id="16-获取项目卡片里显示的报表数据"><a href="#16-获取项目卡片里显示的报表数据" class="headerlink" title="16. 获取项目卡片里显示的报表数据"></a>16. 获取项目卡片里显示的报表数据</h3><h4 id="卡片显示：未完成任务趋势报表"><a href="#卡片显示：未完成任务趋势报表" class="headerlink" title="卡片显示：未完成任务趋势报表"></a>卡片显示：未完成任务趋势报表</h4><h4 id="URL-15"><a href="#URL-15" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/projects/card_report_data" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/projects/card_report_data</a></p>
+<h4 id="HTTP-Method-15"><a href="#HTTP-Method-15" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>GET</p>
+<h4 id="是否需要登录-2"><a href="#是否需要登录-2" class="headerlink" title="是否需要登录"></a>是否需要登录</h4><p>是</p>
+<h4 id="传值方式-8"><a href="#传值方式-8" class="headerlink" title="传值方式"></a>传值方式</h4><p>URL</p>
+<h4 id="参数列表-13"><a href="#参数列表-13" class="headerlink" title="参数列表"></a>参数列表</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:left">是否必须</th>
+<th style="text-align:left">值类型</th>
+<th style="text-align:left">取值范围</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">取值例子</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ids</td>
+<td style="text-align:left">T</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ojytvgw3876gdkut,juyg5oi87tgdwet6</td>
+<td style="text-align:left">多个使用逗号隔开,单个uuid长度为16，并且不能重复</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回的HTTP-status-code-13"><a href="#返回的HTTP-status-code-13" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">成功</td>
+</tr>
+<tr>
+<td style="text-align:left">400</td>
+<td style="text-align:left">请求参数无效</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">服务器错误</td>
+</tr>
+<tr>
+<td style="text-align:left">609</td>
+<td style="text-align:left">项目uuid不存在</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回结果"><a href="#返回结果" class="headerlink" title="返回结果"></a>返回结果</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        <span class="attr">"juyg5oi87tgdwet6"</span>:&#123;</span><br><span class="line">            <span class="attr">"total"</span>: <span class="number">33</span>,</span><br><span class="line">            <span class="attr">"labels"</span>: [<span class="string">"2017-01-01"</span>, <span class="string">"2017-01-02"</span>, <span class="string">"2017-01-03"</span>],</span><br><span class="line">            <span class="attr">"datasets"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">"data"</span>: [<span class="number">9</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"juyg5oi87tgdwet6"</span>:&#123;</span><br><span class="line">            <span class="attr">"total"</span>: <span class="number">33</span>,</span><br><span class="line">            <span class="attr">"labels"</span>: [<span class="string">"2017-01-01"</span>, <span class="string">"2017-01-02"</span>, <span class="string">"2017-01-03"</span>],</span><br><span class="line">            <span class="attr">"datasets"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">"data"</span>: [<span class="number">9</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="16-标记浏览项目接口"><a href="#16-标记浏览项目接口" class="headerlink" title="16. 标记浏览项目接口"></a>16. 标记浏览项目接口</h3><h4 id="URL-16"><a href="#URL-16" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/browse" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/browse</a></p>
+<h4 id="HTTP-Method-16"><a href="#HTTP-Method-16" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>POST</p>
+<h4 id="是否需要登录-3"><a href="#是否需要登录-3" class="headerlink" title="是否需要登录"></a>是否需要登录</h4><p>是</p>
+<h4 id="传值方式-9"><a href="#传值方式-9" class="headerlink" title="传值方式"></a>传值方式</h4><p>URL</p>
+<h4 id="参数列表-14"><a href="#参数列表-14" class="headerlink" title="参数列表"></a>参数列表</h4><p>无</p>
+<h4 id="返回的HTTP-status-code-14"><a href="#返回的HTTP-status-code-14" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left">成功</td>
+</tr>
+<tr>
+<td style="text-align:left">403</td>
+<td style="text-align:left">无权限</td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left">服务器错误</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回结果-1"><a href="#返回结果-1" class="headerlink" title="返回结果"></a>返回结果</h4><p>无</p>
+<h3 id="17-获取项目下的-“迭代负责人”-权限列表"><a href="#17-获取项目下的-“迭代负责人”-权限列表" class="headerlink" title="17. 获取项目下的 “迭代负责人” 权限列表"></a>17. 获取项目下的 “迭代负责人” 权限列表</h3><p>获取项目下的 “迭代负责人” 权限列表</p>
+<h4 id="URL-17"><a href="#URL-17" class="headerlink" title="URL"></a>URL</h4><p><a href="https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/sprint_assign_list" target="_blank" rel="noopener">https://api.ones.ai/v1/team/:teamUUID/project/:projectUUID/sprint_assign_list</a></p>
+<h4 id="调用权限-9"><a href="#调用权限-9" class="headerlink" title="调用权限"></a>调用权限</h4><p>无</p>
+<h4 id="HTTP-Method-17"><a href="#HTTP-Method-17" class="headerlink" title="HTTP Method"></a>HTTP Method</h4><p>GET</p>
+<h4 id="传值方式-10"><a href="#传值方式-10" class="headerlink" title="传值方式"></a>传值方式</h4><p>JSON</p>
+<h4 id="参数列表-15"><a href="#参数列表-15" class="headerlink" title="参数列表"></a>参数列表</h4><p>无</p>
+<h4 id="返回JSON-13"><a href="#返回JSON-13" class="headerlink" title="返回JSON"></a>返回JSON</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">JSON键名</th>
+<th style="text-align:left">值类型</th>
+<th style="text-align:left">取值范围</th>
+<th style="text-align:left">取值例子</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">users</td>
+<td style="text-align:left">array</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">[“userid01”,”userid02”]</td>
+<td style="text-align:left">可选用户列表</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回的HTTP-status-code-15"><a href="#返回的HTTP-status-code-15" class="headerlink" title="返回的HTTP status code"></a>返回的HTTP status code</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">状态码</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">500</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/24/project/" data-id="cjrltl5ko0001vib8wy8y01i5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/24/project/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/24/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
